@@ -1,0 +1,41 @@
+#Nadhifi Qurrunul B F H
+#1103204156
+#Tugas ke-1
+
+# Impor pustaka yang diperlukan
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Membaca data dari file CSV 
+data = pd.read_csv('melb_data.csv')
+
+# Menampilkan 5 baris pertama data
+print("5 Baris Pertama Data:")
+print(data.head())
+
+# Informasi tentang dataset
+print("\nInformasi Data:")
+print(data.info())
+
+# Statistik deskriptif dasar
+print("\nStatistik Deskriptif:")
+print(data.describe())
+
+# Menghitung jumlah data yang hilang per kolom
+print("\nJumlah Data yang Hilang per Kolom:")
+print(data.isnull().sum())
+
+# Visualisasi sederhana
+plt.hist(data['Suburb'], bins=20)
+plt.xlabel('Label sumbu X')
+plt.ylabel('Label sumbu Y')
+plt.title('Judul Histogram')
+plt.show()
+
+kategori_counts = data['kategori'].value_counts()
+kategori_counts.plot(kind='bar')
+plt.xlabel('Kategori')
+plt.ylabel('Jumlah')
+plt.title('Grafik Batang Kategori')
+plt.show()
